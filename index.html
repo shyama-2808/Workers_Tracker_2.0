@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers Tracker</title>
+</head>
+<body>
+    <h1>Workers Tracker</h1>
+
+    <h2>Add Worker</h2>
+
+    <input id="name" placeholder="Worker name"/>
+    <br><br>
+
+    <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br><br>
+
+    <input type="number" placeholder="Daily wage" id="wage"/>
+    <br><br>
+
+    <button onclick="addWorker()">Add Worker</button>
+    <h2>Workers List</h2>
+    <ul id="workers"></ul>
+    <hr>
+
+    <h2>
+        Mark Attendance
+    </h2>
+
+    <label >Select Date</label>
+    <input type="date" id="attendanceDate"/>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Present</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceTable"></tbody>
+    </table>
+    <br>
+    <button onclick="saveAttendance()">Save Attendance</button>
+
+    <h2>Monthly Salary report</h2>
+    <input type="month" id="month"/>
+    <button onclick="loadReport()">Get Report</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Daily wage</th>
+                <th>Days present</th>
+                <th>Total Salary</th>
+
+            </tr>
+        </thead>
+        <tbody id="report"></tbody>
+    </table>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
