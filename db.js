@@ -1,8 +1,8 @@
 const mysql=require('mysql2');
 const db=mysql.createConnection({
     host: 'localhost',
-    user:'root',
-    password:'shyam',
+    user:'',//your db username
+    password:'',//your db pass
     database:'workers_tracker'
 });
 db.connect((err)=>{
@@ -11,4 +11,5 @@ db.connect((err)=>{
     else
         console.log("Connection successful")
 });
+
 module.exports=db;
