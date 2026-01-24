@@ -4,37 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workers Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Workers Tracker</h1>
-
+    <hr>
     <h2>Add Worker</h2>
 
     <input id="name" placeholder="Worker name"/>
+    <br>
+
+    <input id="wage" type="number" placeholder="Daily wage" />
     <br><br>
 
-    <select id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-    </select>
-    <br><br>
-
-    <input type="number" placeholder="Daily wage" id="wage"/>
-    <br><br>
-
-    <button onclick="addWorker()">Add Worker</button>
+    <button id="addBtn" onclick="addWorker()">Add Worker</button><hr>
     <h2>Workers List</h2>
     <ul id="workers"></ul>
     <hr>
 
-    <h2>
-        Mark Attendance
-    </h2>
 
-    <label >Select Date</label>
-    <input type="date" id="attendanceDate"/>
+    <h2>
+        Mark Attendance</h2>
+    <label >Select Date</label><br>
+    <input type="date" id="attendanceDate" onchange="loadAttendanceForDate()"/>
     <br><br>
 
+    <div id="attendanceSummary" style="margin: 10px 0; font-weight: bold;"></div>
+    
     <table>
         <thead>
             <tr>
@@ -45,10 +41,32 @@
         <tbody id="attendanceTable"></tbody>
     </table>
     <br>
-    <button onclick="saveAttendance()">Save Attendance</button>
+    <button id="saveBtn" onclick="saveAttendance()">Save Attendance</button>
+    <hr>
+
+    <h2>Payments Made</h2>
+    <select id="paymentSelect"></select>
+    <input type="number" id="paymentAmount" placeholder="Amount">
+    <input type="date" id="paymentDate">
+    <input type="text" id="paymentRemarks" placeholder="Remarks"><br><br>
+    <button onclick="addPayment()" id="payBtn">Add Payment</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Worker</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody id="paymentsTable"></tbody>
+    </table>
+
+    <hr>
 
     <h2>Monthly Salary report</h2>
-    <input type="month" id="month"/>
+    <input type="month" id="month"/><br><br>    
     <button onclick="loadReport()">Get Report</button>
     <table>
         <thead>
@@ -65,5 +83,6 @@
 
 
     <script src="app.js"></script>
+    <div id="toast"></div>
 </body>
 </html>
